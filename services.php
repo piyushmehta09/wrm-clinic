@@ -1,8 +1,8 @@
 <?php
 require_once("connection.php");
 
-// Fetch products from the database
-$result = $conn->query("SELECT * FROM products ORDER BY created_at DESC");
+
+$result = $conn->query("SELECT * FROM services ORDER BY created_at DESC");
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +18,8 @@ $result = $conn->query("SELECT * FROM products ORDER BY created_at DESC");
             <div class="content p-4">
                 <div class="container">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h3>Products</h3>
-                        <a href="add_product.php" class="btn btn-primary"><i class="fas fa-plus"></i> Add Product</a>
+                        <h3>Services</h3>
+                        <a href="add_services.php" class="btn btn-primary"><i class="fas fa-plus"></i> Add Services</a>
                     </div>
 
                     <div class="row">
@@ -29,9 +29,8 @@ $result = $conn->query("SELECT * FROM products ORDER BY created_at DESC");
                                     <img src="uploads/<?php echo $row['image']; ?>" class="card-img-top" height="200">
                                     <div class="card-body text-center">
                                         <h5 class="card-title"><?php echo htmlspecialchars($row['image_name']); ?></h5>
-                                        <p class="card-text"><?php echo htmlspecialchars($row['image_description']); ?></p>
-                                        <a href="add_product.php?edit=<?php echo $row['image_name']; ?>" class="btn btn-warning">Edit</a>
-                                        <a href="delete_product.php?name=<?php echo $row['image_name']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
+                                        <a href="add_services.php?edit=<?php echo $row['image_name']; ?>" class="btn btn-warning">Edit</a>
+                                        <a href="delete_services.php?name=<?php echo $row['image_name']; ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?');">Delete</a>
                                     </div>
                                 </div>
                             </div>
